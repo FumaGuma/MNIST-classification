@@ -171,7 +171,6 @@ class NN():
         return x
 
     def backprop(self, loss_prop):
-        #loss_prop = y - self.network_output
         for layer in reversed(self.layers):
             loss_prop = layer.backward(loss_prop)
 
