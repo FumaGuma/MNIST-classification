@@ -46,10 +46,10 @@ class MnistDataloader(object):
         return self.flatten_dataset(np.array(images), np.array(self.vectorized_result(labels)))
 
     def load_data(self):
-        training_images_filepath = 'input/train-images-idx3-ubyte/train-images-idx3-ubyte'
-        training_labels_filepath = 'input/train-labels-idx1-ubyte/train-labels-idx1-ubyte'
-        test_images_filepath = 'input/t10k-images-idx3-ubyte/t10k-images-idx3-ubyte'
-        test_labels_filepath = 'input/t10k-labels-idx1-ubyte/t10k-labels-idx1-ubyte'
+        training_images_filepath = 'dataset/train-images-idx3-ubyte/train-images-idx3-ubyte'
+        training_labels_filepath = 'dataset/train-labels-idx1-ubyte/train-labels-idx1-ubyte'
+        test_images_filepath = 'dataset/t10k-images-idx3-ubyte/t10k-images-idx3-ubyte'
+        test_labels_filepath = 'dataset/t10k-labels-idx1-ubyte/t10k-labels-idx1-ubyte'
         x_train, y_train = self.read_images_labels(training_images_filepath, training_labels_filepath)
         x_test, y_test = self.read_images_labels(test_images_filepath, test_labels_filepath)
         return (x_train, y_train), (x_test, y_test)
