@@ -52,6 +52,21 @@ def evaluate(x_data, y_data, network):
         count += sum(x == y for x, y in zip(x_out, y_out))
     return count / total
 
+def get_predictions_and_images(model, x_data, i, n):
+    print(np.argmax(model.forward(x_data[i:i + 1, :])))
+    #plt.imshow(x_data[i].reshape(28, 28))
+    #plt.show()
+
+    #fig, axs = plt.subplots(n, sharex=True, sharey=True)
+    fig, axs = plt.subplots(n, n)
+    #fig.suptitle('Predictions')
+    for j in range(n):
+        for k in range(n):
+            axs[j, k].imshow(x_data[i + j*n + k].reshape(28, 28))
+            axs[j, k].set_title(f"Predicted: {np.argmax(model.forward(x_data[i + j*n + k:i + j*n + k + 1, :]))}")
+    fig.tight_layout(pad=0.1)
+    plt.show()
+
 class LossTracker():
     def __init__(self, number_of_batches_to_average, epoch_subset_sample_number, batch_size, total_batch_number):
         self.train_loss_for_display = []

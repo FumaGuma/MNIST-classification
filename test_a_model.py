@@ -1,7 +1,9 @@
 from utils import load_model, evaluate
 from data_loader import MnistDataloader
 
-model = load_model("tiny_model1")
+from utils import get_predictions_and_images
+
+model = load_model("big_dropout_model")
 
 mnist_dataloader = MnistDataloader()
 (x_train, y_train), (x_test, y_test) = mnist_dataloader.load_data()
@@ -11,3 +13,5 @@ test_accuracy = evaluate(x_test, y_test, model)
 print(model.get_description())
 print(f"Train accuracy: {train_accuracy}")
 print(f"Test accuracy: {test_accuracy}")
+
+get_predictions_and_images(model, x_train, 150, 5)
