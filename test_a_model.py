@@ -14,4 +14,4 @@ print(model.get_description())
 print(f"Train accuracy: {train_accuracy}")
 print(f"Test accuracy: {test_accuracy}")
 
-get_predictions_and_images(model, x_train, 150, 5)
+get_predictions_and_images(model, x_test, 150, 3)
